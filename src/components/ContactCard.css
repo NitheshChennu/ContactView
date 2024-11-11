@@ -1,0 +1,53 @@
+.contact-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c1c1c2;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.contact-card:hover{
+    background-color: #7d7c7c;
+}
+  
+.contact-card span {
+    flex-grow: 1;
+}
+.contact-info {
+    display: flex;
+    align-items: center;  /* Align the icon and text vertically */
+}
+  
+.contact-info span {
+    font-size: 16px;
+    font-weight: bold;  /* Customize the font size/weight of the name */
+}
+  
+.contact-card button {
+    margin-left: 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    padding: 4px 12px;
+    border-radius: 5px;
+}
+#edit-button{
+    background-color: #6aa7ec;
+}
+#edit-button:hover{
+    background-color: #0354b0;
+}
+#view-button{
+    background-color: rgb(52, 241, 128);
+}
+#view-button:hover{
+    background-color: #05a212;
+}
+#delete-button{
+    background-color: rgb(223, 80, 80);
+}
+#delete-button:hover{
+    background-color: #b00606;
+}

@@ -1,0 +1,32 @@
+.contacts-view {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+  
+.contacts-view h1 {
+    color: #d1e8ff;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+  
+.add-contact {
+    background-color: #6097ea;
+    color: #fff;
+    margin-bottom: 15px;
+    padding: 8px 16px;
+    border: none;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+.add-contact:hover {
+    background-color: #357ab8;
+}
+  
