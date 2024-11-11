@@ -17,12 +17,12 @@
 }
 .contact-info {
     display: flex;
-    align-items: center;  /* Align the icon and text vertically */
+    align-items: center; 
 }
   
 .contact-info span {
     font-size: 16px;
-    font-weight: bold;  /* Customize the font size/weight of the name */
+    font-weight: bold; 
 }
   
 .contact-card button {

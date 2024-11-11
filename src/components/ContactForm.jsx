@@ -3,16 +3,18 @@ import './ContactForm.css';
 import { IoIosCloseCircle } from "react-icons/io";
 
 const ContactForm = ({ onSubmit, onClose, initialData = {}, contacts = [] }) => {
+  // State for form inputs and error messages
   const [name, setName] = useState(initialData.name || '');
   const [email, setEmail] = useState(initialData.email || '');
   const [phone, setPhone] = useState(initialData.phone || '');
   const [address, setAddress] = useState(initialData.address || '');
   const [errors, setErrors] = useState({});
 
-  // Validate form including duplicates
+  // Form validation function
   const validateForm = () => {
     const newErrors = {};
 
+    // Check for required fields and basic validations
     if (!name) newErrors.name = 'Name is required';
     if (!email) {
       newErrors.email = 'Email is required';
@@ -26,7 +28,7 @@ const ContactForm = ({ onSubmit, onClose, initialData = {}, contacts = [] }) => 
     }
     if (!address) newErrors.address = 'Address is required';
 
-    // Check for duplicates, excluding the current contact being edited
+    // Check for duplicates (excluding the current contact if editing)
     if (contacts.some(contact => contact.name === name && contact.id !== initialData.id)) {
       newErrors.name = 'This name already exists';
     }
@@ -38,17 +40,20 @@ const ContactForm = ({ onSubmit, onClose, initialData = {}, contacts = [] }) => 
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return Object.keys(newErrors).length === 0; // Return true if no errors
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       onSubmit({ name, email, phone, address });
-      setName(''); setEmail(''); setPhone(''); setAddress(''); // Clear fields after successful submission
+      // Clear form fields on successful submit
+      setName(''); setEmail(''); setPhone(''); setAddress('');
     }
   };
 
+  // Reset form fields
   const handleReset = () => {
     setName('');
     setEmail('');
@@ -60,8 +65,10 @@ const ContactForm = ({ onSubmit, onClose, initialData = {}, contacts = [] }) => 
   return (
     <div className="contact-form-overlay">
       <div className="contact-form">
+        {/* Close button */}
         <button className="close-button" onClick={onClose}><IoIosCloseCircle /></button>
         <form onSubmit={handleSubmit}>
+          {/* Name input */}
           <input
             type="text"
             placeholder="Name"
@@ -72,6 +79,7 @@ const ContactForm = ({ onSubmit, onClose, initialData = {}, contacts = [] }) => 
           />
           {errors.name && <div id="name-error" className="error-message">{errors.name}</div>}
           
+          {/* Email input */}
           <input
             type="email"
             placeholder="Email"
@@ -82,6 +90,7 @@ const ContactForm = ({ onSubmit, onClose, initialData = {}, contacts = [] }) => 
           />
           {errors.email && <div id="email-error" className="error-message">{errors.email}</div>}
           
+          {/* Phone input */}
           <input
             type="text"
             placeholder="Phone"
@@ -92,6 +101,7 @@ const ContactForm = ({ onSubmit, onClose, initialData = {}, contacts = [] }) => 
           />
           {errors.phone && <div id="phone-error" className="error-message">{errors.phone}</div>}
           
+          {/* Address input */}
           <input
             type="text"
             placeholder="Address"
@@ -102,6 +112,7 @@ const ContactForm = ({ onSubmit, onClose, initialData = {}, contacts = [] }) => 
           />
           {errors.address && <div id="address-error" className="error-message">{errors.address}</div>}
 
+          {/* Buttons for submit and reset */}
           <div id="buttons">
             <button id="submit-button" type="submit">Submit</button>
             <button id="reset-button" type="button" onClick={handleReset}>Reset</button>
